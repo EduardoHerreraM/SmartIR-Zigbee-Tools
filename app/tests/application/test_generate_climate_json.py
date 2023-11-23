@@ -1,3 +1,5 @@
+import json
+
 from src.application.generate_climate_json import GenerateClimateJson
 
 
@@ -11,6 +13,9 @@ def test_given_inputs_when_they_are_correct_then_the_output_is_as_expected(
     operation_modes = ["cool", "heat"]
     fan_modes = ["auto", "low"]
     swing_modes = ["off", "on"]
+    expected_output_file_path = "app/tests/files/correct_inputs_expected_output.json"
+    with open(expected_output_file_path) as f:
+        expected_output = json.load(f)
 
     generated_json = generate_climate_json(
         manufacturer=manufacturer,
@@ -22,13 +27,4 @@ def test_given_inputs_when_they_are_correct_then_the_output_is_as_expected(
         swing_modes=swing_modes,
     )
 
-    assert generated_json
-    assert generated_json["manufacturer"] == manufacturer
-    assert generated_json["supportedModels"] == [model]
-    assert generated_json["commandsEncoding"] == "Raw"
-    assert generated_json["supportedController"] == "MQTT"
-    assert generated_json["minTemperature"] == minimum_temperature
-    assert generated_json["maxTemperature"] == maximum_temperature
-    assert generated_json["operationModes"] == operation_modes
-    assert generated_json["fanModes"] == fan_modes
-    assert generated_json["swingModes"] == swing_modes
+    assert generated_json == expected_output
