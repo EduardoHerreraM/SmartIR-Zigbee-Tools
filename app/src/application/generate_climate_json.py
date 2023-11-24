@@ -48,6 +48,8 @@ class GenerateClimateJson:
         for operation_mode in operation_modes:
             commands_list[operation_mode] = {}
             for fan_mode in fan_modes:
+                if operation_mode == "auto" and fan_mode != "auto":
+                    continue
                 commands_list[operation_mode][fan_mode] = {}
                 for swing_mode in swing_modes:
                     commands_list[operation_mode][fan_mode][swing_mode] = {}
