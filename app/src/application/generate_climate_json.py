@@ -25,9 +25,7 @@ class GenerateClimateJson:
 
     def __get_controller_learnt_code(self) -> str:
         print("Setting the controller to learning mode...")
-        controller_message = self.__mqtt_client.poll_message_from_topic(
-            topic=self.__controller.controller_read_code_topic
-        )
+        controller_message = self.__mqtt_client.poll_message_from_subscribed_topic()
         return self.__controller.extract_code_from_message(message=controller_message)
 
     def __call__(
@@ -40,6 +38,9 @@ class GenerateClimateJson:
         fan_modes: list[str],
         swing_modes: list[str],
     ) -> dict[str : float | str]:
+        self.__mqtt_client.subscribe_to_topic(
+            self.__controller.controller_read_code_topic
+        )
         self.__set_controller_to_learning_mode()
 
         print("Set the device to `off` mode")

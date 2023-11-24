@@ -17,7 +17,7 @@ def test_given_inputs_when_they_are_correct_then_the_output_is_as_expected(
     expected_output_file_path = "app/tests/files/correct_inputs_expected_output.json"
     with open(expected_output_file_path) as f:
         expected_output = json.load(f)
-    mqtt_client.poll_message_from_topic.return_value = {
+    mqtt_client.poll_message_from_subscribed_topic.return_value = {
         "learned_ir_code": "this_code_is_an_example"
     }
     controller.extract_code_from_message.side_effect = lambda message: message[
@@ -47,7 +47,7 @@ def test_given_inputs_when_they_are_correct_then_the_call_count_of_learning_and_
     operation_modes = ["cool"]
     fan_modes = ["auto"]
     swing_modes = ["off"]
-    mqtt_client.poll_message_from_topic.return_value = {
+    mqtt_client.poll_message_from_subscribed_topic.return_value = {
         "learned_ir_code": "this_code_is_an_example"
     }
     controller.extract_code_from_message.side_effect = lambda message: message[
@@ -65,17 +65,20 @@ def test_given_inputs_when_they_are_correct_then_the_call_count_of_learning_and_
     )
 
     mqtt_client.publish_message_to_topic.assert_called()
-    mqtt_client.poll_message_from_topic.assert_called()
+    mqtt_client.poll_message_from_subscribed_topic.assert_called()
     controller.get_learning_mode_message.assert_called()
     controller.extract_code_from_message.assert_called()
 
-    assert len(
-        set(
-            [
-                mqtt_client.publish_message_to_topic.call_count,
-                mqtt_client.poll_message_from_topic.call_count,
-                controller.get_learning_mode_message.call_count,
-                controller.extract_code_from_message.call_count,
-            ]
+    assert (
+        len(
+            set(
+                [
+                    mqtt_client.publish_message_to_topic.call_count,
+                    mqtt_client.poll_message_from_subscribed_topic.call_count,
+                    controller.get_learning_mode_message.call_count,
+                    controller.extract_code_from_message.call_count,
+                ]
+            )
         )
-    ) == 1 # all are equal
+        == 1
+    )  # all are equal

@@ -7,5 +7,13 @@ class MQTTClient(ABC):
         ...
 
     @abstractmethod
-    def poll_message_from_topic(self, topic: str) -> dict:
+    def subscribe_to_topic(self, topic: str) -> None:
+        ...
+
+    @abstractmethod
+    def poll_message_from_subscribed_topic(self) -> dict:
+        ...
+
+    @abstractmethod
+    def close_connection(self) -> None:
         ...
