@@ -1,0 +1,7 @@
+version: "3"
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    network_mode: host
+    restart: unless-stopped

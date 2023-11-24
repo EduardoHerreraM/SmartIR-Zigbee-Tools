@@ -1,0 +1,147 @@
+{
+  "manufacturer": "test_manufacturer",
+  "supportedModels": ["test_model"],
+  "commandsEncoding": "Raw",
+  "supportedController": "MQTT",
+  "minTemperature": 18.0,
+  "maxTemperature": 30.0,
+  "precision": 1.0,
+  "operationModes": ["auto", "cool"],
+  "fanModes":  ["auto", "low"],
+  "swingModes": ["off", "on"],
+  "commands": {
+    "off": "this_code_is_an_example",
+    "auto": {
+      "auto": {
+        "off": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        },
+        "on": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        }
+      },
+      "low": {
+        "off": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        },
+        "on": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        }
+      }
+    },
+    "cool": {
+      "auto": {
+        "off": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        },
+        "on": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        }
+      },
+      "low": {
+        "off": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        },
+        "on": {
+          "18": "this_code_is_an_example",
+          "19": "this_code_is_an_example",
+          "20": "this_code_is_an_example",
+          "21": "this_code_is_an_example",
+          "22": "this_code_is_an_example",
+          "23": "this_code_is_an_example",
+          "24": "this_code_is_an_example",
+          "25": "this_code_is_an_example",
+          "26": "this_code_is_an_example",
+          "27": "this_code_is_an_example",
+          "28": "this_code_is_an_example",
+          "29": "this_code_is_an_example",
+          "30": "this_code_is_an_example"
+        }
+      }
+    }
+  }
+}
