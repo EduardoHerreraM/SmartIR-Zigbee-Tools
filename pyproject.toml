@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 paho-mqtt = "^1.6.1"
+pydantic = "^2.5.2"
+pydantic-settings = "^2.1.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.3"
