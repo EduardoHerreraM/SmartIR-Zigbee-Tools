@@ -76,6 +76,7 @@ class GenerateClimateJson:
             "supportedController": "MQTT",
             "minTemperature": minimum_temperature,
             "maxTemperature": maximum_temperature,
+            "precision": 1.0,
             "operationModes": operation_modes,
             "fanModes": fan_modes,
             "swingModes": swing_modes,

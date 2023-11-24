@@ -5,6 +5,7 @@
   "supportedController": "MQTT",
   "minTemperature": 18.0,
   "maxTemperature": 30.0,
+  "precision": 1.0,
   "operationModes": ["cool", "heat"],
   "fanModes":  ["auto", "low"],
   "swingModes": ["off", "on"],
