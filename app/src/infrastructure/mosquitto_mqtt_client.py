@@ -4,6 +4,7 @@ import queue
 import paho.mqtt.client as mqtt
 
 from src.domain.mqtt_client import MQTTClient
+from src.domain.exceptions import ConnectionNotEstablishedException
 
 
 class MosquittoMQTTClient(MQTTClient):
@@ -31,10 +32,14 @@ class MosquittoMQTTClient(MQTTClient):
         self.__queue.put(json.loads(data))
 
     def subscribe_to_topic(self, topic: str) -> None:
-        self.__client.subscribe(topic=topic)
+        err, mid = self.__client.subscribe(topic=topic)
+        if err != mqtt.MQTT_ERR_SUCCESS:
+            raise ConnectionNotEstablishedException()
 
     def publish_message_to_topic(self, topic: str, message: dict) -> None:
-        self.__client.publish(topic=topic, payload=json.dumps(message))
+        err, mid = self.__client.publish(topic=topic, payload=json.dumps(message))
+        if err != mqtt.MQTT_ERR_SUCCESS:
+            raise ConnectionNotEstablishedException()
 
     def poll_message_from_subscribed_topic(self) -> dict:
         data = self.__queue.get()

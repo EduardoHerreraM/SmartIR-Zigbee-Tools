@@ -8,6 +8,12 @@ My developing was done using a [`MOES UFO-R11`](https://www.zigbee2mqtt.io/devic
 
 Feel free to perform a pull request for your feature! :)
 
+## Run tests
+
+```commandline
+LOCALPATH=${pwd} pytest
+```
+
 ## Project capabilities
 
 Right now, the project only works with the following device types:

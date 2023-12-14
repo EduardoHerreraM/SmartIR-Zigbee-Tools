@@ -5,3 +5,6 @@ services:
     container_name: mosquitto
     network_mode: host
     restart: unless-stopped
+    volumes:
+      - ${LOCALPATH}/app/tests/files/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ${LOCALPATH}/app/tests/files/mosquitto.passwd:/mosquitto/config/mosquitto.passwd
