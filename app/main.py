@@ -7,12 +7,11 @@ from settings import Settings
 
 
 if __name__ == "__main__":
-
     settings = Settings(_env_file="properties.env")
 
     controller = MOES_UFO_R11_Controller(
         controller_read_code_topic=f"zigbee2mqtt/{settings.CONTROLLER_FRIENDLY_NAME}",
-        controller_set_learning_topic=f"zigbee2mqtt/{settings.CONTROLLER_FRIENDLY_NAME}/set"
+        controller_set_learning_topic=f"zigbee2mqtt/{settings.CONTROLLER_FRIENDLY_NAME}/set",
     )
     mqtt_client = MosquittoMQTTClient(
         broker_address=settings.BROKER_ADDRESS,
@@ -21,8 +20,7 @@ if __name__ == "__main__":
         password=settings.PASSWORD,
     )
     generate_climate_json = GenerateClimateJson(
-        mqtt_client=mqtt_client,
-        controller=controller
+        mqtt_client=mqtt_client, controller=controller
     )
 
     codes = generate_climate_json(

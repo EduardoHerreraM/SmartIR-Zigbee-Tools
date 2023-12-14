@@ -94,7 +94,9 @@ def test_given_valid_inputs_when_mode_includes_auto_and_fan_includes_auto_and_an
     operation_modes = ["auto", "cool"]
     fan_modes = ["auto", "low"]
     swing_modes = ["off", "on"]
-    expected_output_file_path = "app/tests/files/correct_inputs_with_auto_operation_expected_output.json"
+    expected_output_file_path = (
+        "app/tests/files/correct_inputs_with_auto_operation_expected_output.json"
+    )
     with open(expected_output_file_path) as f:
         expected_output = json.load(f)
     mqtt_client.poll_message_from_subscribed_topic.return_value = {
@@ -127,7 +129,9 @@ def test_given_valid_inputs_when_mode_includes_dry_and_fan_includes_auto_and_ano
     operation_modes = ["dry", "cool"]
     fan_modes = ["auto", "low"]
     swing_modes = ["off", "on"]
-    expected_output_file_path = "app/tests/files/correct_inputs_with_dry_operation_expected_output.json"
+    expected_output_file_path = (
+        "app/tests/files/correct_inputs_with_dry_operation_expected_output.json"
+    )
     with open(expected_output_file_path) as f:
         expected_output = json.load(f)
     mqtt_client.poll_message_from_subscribed_topic.return_value = {
