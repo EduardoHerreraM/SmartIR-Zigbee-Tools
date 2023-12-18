@@ -23,13 +23,23 @@ class MosquittoMQTTClient(MQTTClient):
             self.__client.username_pw_set(username=username, password=password)
 
         self.__client.on_message = self.__on_message
+        self.__client.on_connect = self.__on_connect
         self.__client.connect(host=self.__broker_address, port=self.__broker_port)
         self.__queue = queue.Queue()
         self.__client.loop_start()
+        self.__check_connection_established()
 
     def __on_message(self, client, userdata, message) -> None:
         data = message.payload.decode("utf-8")
         self.__queue.put(json.loads(data))
+
+    def __on_connect(self, client, userdata, flags, reason_code):
+        self.__queue.put(reason_code)
+
+    def __check_connection_established(self) -> None:
+        connection_code = self.__queue.get()
+        if connection_code != mqtt.MQTT_ERR_SUCCESS:
+            raise ConnectionNotEstablishedException()
 
     def subscribe_to_topic(self, topic: str) -> None:
         err, mid = self.__client.subscribe(topic=topic)

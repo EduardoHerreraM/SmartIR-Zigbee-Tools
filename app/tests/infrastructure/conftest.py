@@ -11,12 +11,12 @@ def set_mosquitto_container() -> None:
         "app/tests/files", compose_file_name="mosquitto_docker_compose.yml", pull=True
     )
     with compose:
-        compose.exec_in_container(
+        _ = compose.exec_in_container(
             service_name="mosquitto",
             command=[
-                "mosquitto",
-                "passwd",
+                "mosquitto_passwd",
                 "-b",
+                "-c",
                 "/mosquitto/config/mosquitto.passwd",
                 "test",
                 "test",

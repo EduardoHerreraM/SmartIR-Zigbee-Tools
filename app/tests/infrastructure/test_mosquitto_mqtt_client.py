@@ -39,12 +39,10 @@ def test_given_an_invalid_connection_when_the_client_is_initialized_then_an_exce
 def test_given_an_invalid_connection_credentials_when_the_message_is_tried_to_sent_an_exception_is_raised() -> (
     None
 ):
-    mosquitto_mqtt_client = MosquittoMQTTClient(
-        broker_address="localhost",
-        broker_port=1883,
-        username="not-valid",
-        password="not-valid",
-    )
-    topic = "test_topic"
     with pytest.raises(ConnectionNotEstablishedException):
-        mosquitto_mqtt_client.subscribe_to_topic(topic=topic)
+        MosquittoMQTTClient(
+            broker_address="localhost",
+            broker_port=1883,
+            username="test",
+            password="not-valid"
+        )
