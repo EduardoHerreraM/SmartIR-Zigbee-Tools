@@ -51,6 +51,34 @@ My controller payload looks like this:
 
 So my `extract_code_from_message` is extracting the value of the `learned_ir_code` field.
 
+## How to execute
+
+### Install dependencies
+
+```bash
+make install
+```
+
+### Run the project
+
+```bash
+make run
+```
+
+## Development
+
+### Install the development packages
+
+```bash
+make install-dev
+```
+
+### Run tests
+
+```bash
+make run-tests
+```
+
 ## Environment definition
 
 This project needs several environment values for correctly working. Here is the specification:
